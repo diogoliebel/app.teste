@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar color="headr">
+    <ion-title>{{ event }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="bg-style">
+
+<form [formGroup]="form" class="bg-style">
+
+  <ion-item class="bg-style">
+    <ion-label stacked>Nome</ion-label>
+    <ion-input type="text" formControlName="name"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="!form.controls.name.valid && (form.controls.name.dirty || form.controls.name.touched)" color="danger">
+    <div [hidden]="!form.controls.name.errors.required">
+      O campo é obrigatório.
+    </div>
+  </ion-item>
+
+  <ion-item class="bg-style">
+      <ion-label stacked>Descrição</ion-label>
+      <ion-textarea formControlName="desc"></ion-textarea>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.desc.valid && (form.controls.desc.dirty || form.controls.desc .touched)" color="danger">
+      <div [hidden]="!form.controls.desc.errors.required">
+        O campo é obrigatório.
+      </div>
+    </ion-item>
+    <hr>
+    <hr>
+    <div padding>
+            <button class="centerBtn" ion-button color="light" [disabled]="!form.valid" (click)="onSubmit()" outline>Salvar</button>
+    </div>
+    <div padding>
+      <button class="centerBtn" ion-button color="light" (click)="showConfirm()" outline>Cancelar</button>
+    </div>
+</form>
+</ion-content>
+ 
