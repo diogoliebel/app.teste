@@ -18,7 +18,7 @@ export class HomePage {
 
   // Adicionar a página Eventos na Home do App
   newEvent() {
-    this.navCtrl.push('EventPage')
+    this.navCtrl.push('EventPage');
   }
 
   editEvent(event: any) {
